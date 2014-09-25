@@ -51,6 +51,19 @@ describe('PlayerView', function() {
       $(appView.playerView.el).trigger('ended');
       expect(appView.playerView.model).to.equal(thirdSong);
     });
+    it('adds 1 to the play count when the song when finished playing', function(){
+      var firstSong = library.at(0)
+        , secondSong = library.at(1)
+        , thirdSong = library.at(2)
+        , songQueue = appView.model.get('songQueue');
+      // Set up a queue of three songs
+      expect(firstSong.get('playCount')).to.equal(0);
+      firstSong.play();
+      expect(firstSong.get('playCount')).to.equal(1);
+      // play the first song (restarts it since we already played automatically )
+      firstSong.play();
+      expect(firstSong.get('playCount')).to.equal(2);
+    });
   });
 
 });

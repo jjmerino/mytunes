@@ -30,5 +30,4 @@ describe('LibraryEntryView', function() {
 
     SongModel.prototype.enqueue.restore();
   });
-
 });
