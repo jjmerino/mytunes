@@ -9,16 +9,21 @@
 
     <script src="data/data.js"></script>
 
+    <!-- loads models -->
     <script src="models/SongModel.js"></script>
     <script src="collections/Songs.js"></script>
     <script src="collections/SongQueue.js"></script>
     <script src="models/AppModel.js"></script>
 
+     <!-- loads views -->
     <script src="views/PlayerView.js"></script>
     <script src="views/LibraryView.js"></script>
     <script src="views/LibraryEntryView.js"></script>
+    <script src="views/SongQueueEntryView.js"></script>
+    <script src="views/SongQueueView.js"></script>
     <script src="views/AppView.js"></script>
 
+    <!-- bootstraps our application -->
     <script>
       $(function(){
         // set up model objects
@@ -27,6 +32,8 @@
 
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
+
+
 
         // put the view onto the screen
         $('body').append(appView.render());
