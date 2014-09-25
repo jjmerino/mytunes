@@ -35,4 +35,22 @@ describe('SongQueueView', function() {
     expect(view.render).to.have.been.called;
   });
 
+  describe('modifying the queue',function(){
+    it('removes a song when the song is clicked',function(){
+      // fixture - a set of data and variables that need to be created for the test to run (a simulation of a 'real' environment)
+
+      sinon.spy(SongModel.prototype, 'dequeue');
+
+      view = new SongQueueView({collection: fakeSongs});
+      view.render();
+      var func = fakeSongs.first().dequeue;
+
+      var clickedElement = view.$el.find('tr').first();
+      console.log(clickedElement);
+      clickedElement.click();
+      expect(func).to.have.been.called;
+      SongModel.prototype.dequeue.restore();
+    });
+
+  })
 });
